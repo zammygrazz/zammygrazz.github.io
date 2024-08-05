@@ -1,6 +1,6 @@
 /* styles.css */
 .table-container {
-    height: 400px;
+    height: 100px;
     /* Adjust based on how much of the table you want to show */
     overflow: hidden;
     /* Hide the rest of the table content */
