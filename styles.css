@@ -5,6 +5,7 @@
     overflow: hidden;
     /* Hide the rest of the table content */
     position: relative;
+    border: 2px solid red;
 }
 
 table {
