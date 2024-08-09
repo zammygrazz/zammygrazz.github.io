@@ -1,6 +1,6 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
-    const rowsPerPage = 10; // Number of rows to show per page
+    const rowsPerPage = 16; // Number of rows to show per page
     const table = document.getElementById('data-table');
     const tbody = table.querySelector('tbody');
     const rows = Array.from(tbody.querySelectorAll('tr'));

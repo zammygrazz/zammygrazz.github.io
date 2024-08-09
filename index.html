@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paginated Table</title>
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+
 </head>
 
 <body>
@@ -68,7 +75,7 @@
                     <td>Data 3</td>
                 </tr>
                 <tr>
-                    <td>Data 1</td>
+                    <td>something</td>
                     <td>Data 2</td>
                     <td>Data 3</td>
                 </tr>
@@ -87,8 +94,16 @@
             </tbody>
         </table>
     </div>
-    <button id="next-button">Next</button>
-    <script src="script.js"></script>
+    <!-- <button id="next-button">Next</button> -->
+
+    <script>
+        $(document).ready(function () {
+            $('#data-table').DataTable();
+        });
+    </script>
+
+    <!-- <script src="script.js"></script>
+    <script src="test.js"></script> -->
 </body>
 
 </html>
