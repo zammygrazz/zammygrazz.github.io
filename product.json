@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/1.png"
+    },
+    {
+        "id": 2,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/2.png"
+    },
+    {
+        "id": 3,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/3.png"
+    },
+    {
+        "id": 4,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/4.png"
+    },
+    {
+        "id": 5,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/5.png"
+    },
+    {
+        "id": 6,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/6.png"
+    },
+    {
+        "id": 7,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/7.png"
+    },
+    {
+        "id": 8,
+        "name": "LDO1 LOUNGE CHAIR",
+        "price": 200,
+        "image": "img/8.png"
+    }
+]

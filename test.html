@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const num = [1, 2, 13, 14, 5, 6, 7];
+        let myElement = document.createElement("div");
+        myElement.classList.add("main");
+        let paragraph = document.createElement("p");
+        paragraph.textContent = "Hello World";
+
+
+
+        document.body.appendChild(myElement);
+        myElement.appendChild(paragraph);
+
+        myElement.dataset.id = "1";
+
+        paragraph.parentElement.innerHTML = "THere!!!!";
+
+        const index = num.findIndex((value) => {
+            return value >= 10;
+        })
+
+        console.log(index);
+
+
+    </script>
+</body>
+
+</html>
