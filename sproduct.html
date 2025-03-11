@@ -266,9 +266,38 @@
         </div>
     </footer>
 
+    <!-- 
+    <script src="app.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let mainImg = document.getElementById('mainImg');
+            let smallImg = document.getElementsByClassName('small-img');
+            let selectedImage = localStorage.getItem("selectedImage");
+            let imgArray = JSON.parse(localStorage.getItem('storedArray')) || [];
+            if (selectedImage && imgArray) {
+                mainImg.src = selectedImage;
+                console.log("This is the image array", imgArray);
 
-    <script src="app.js"></script>
-    <!-- <script src="test.js"></script> -->
+            } else {
+                console.error("mainImg element not found in sproduct.html");
+            }
+
+
+
+            if (imgArray.length > 0) {
+                for (let i = 0; i < imgArray.length; i++) {
+                    if (imgArray[i]) {
+                        smallImg[i].src = imgArray[i];
+                        smallImg[i].onclick = function () {
+                            mainImg.src = this.src;
+                        };
+                    }
+                }
+            }
+
+
+        });
+    </script>
     <!-- fontawesome CDN -->
     <script src="https://kit.fontawesome.com/58968bf7fb.js" crossorigin="anonymous"></script>
 </body>

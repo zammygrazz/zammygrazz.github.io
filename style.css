@@ -84,6 +84,8 @@ header {
     padding: 20px 0;
 }
 
+
+
 header .icon-cart {
     position: relative;
 }
@@ -663,7 +665,9 @@ footer .copywrite {
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: .5s;
+    z-index: 1000;
 }
+
 
 body.showCart .cartTab {
     inset: 0 0 0 auto;
@@ -674,6 +678,7 @@ body.showCart .container {
 }
 
 .cartTab h1 {
+    color: #eee;
     padding: 20px;
     margin: 0;
     font-weight: 300;
