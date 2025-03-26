@@ -86,13 +86,13 @@ header {
 
 
 
-header .icon-cart {
+#navbar .icon-cart {
     position: relative;
 }
 
-header .icon-cart span {
-    width: 30px;
-    height: 30px;
+#navbar .icon-cart span {
+    width: 20px;
+    height: 20px;
     display: flex;
     background-color: red;
     justify-content: center;
@@ -100,7 +100,7 @@ header .icon-cart span {
     color: #fff;
     border-radius: 50%;
     position: absolute;
-    right: -20px;
+    right: 5px;
     top: 50%;
     cursor: pointer;
 
@@ -709,6 +709,7 @@ body.showCart .container {
     display: grid;
     grid-template-columns: 70px 130px 50px 1fr;
     gap: 10px;
+    padding-bottom: 5px;
     text-align: center;
     align-items: center;
 }
@@ -733,12 +734,15 @@ body.showCart .container {
 }
 
 .listCart {
+    margin-top: 25px;
     overflow: auto;
+
 }
 
 .listCart::-webkit-scrollbar {
     width: 0;
 }
+
 
 /* Tablet View */
 
@@ -1009,6 +1013,19 @@ body.showCart .container {
         width: 40%;
     }
 
+    #about-head {
+        flex-direction: column;
+    }
+
+    #about-head img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #about-head div {
+        padding-left: 0;
+    }
+
 }
 
 /* shop page */
@@ -1110,4 +1127,75 @@ body.showCart .container {
 
 #prodetails .single-pro-details span {
     line-height: 25px;
+}
+
+/* about page */
+
+#page-header .about-header {
+    background: url('img/about/banner.png');
+}
+
+
+#about-head img {
+    width: 50%;
+    height: auto;
+    border-radius: 12px;
+}
+
+#about-head {
+    display: flex;
+    justify-content: center;
+}
+
+#about-head div {
+    padding-left: 40px;
+}
+
+#about-head div h2 {
+    font-size: 30px;
+}
+
+/* contact page */
+
+#contact-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+#contact-details .details {
+    width: 40%;
+}
+
+#contact-details .details span {
+    font-size: 12px;
+}
+
+#contact-details .details h2 {
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px 0;
+}
+
+#contact-details .details h3 {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+#contact-details .details li {
+    display: flex;
+    list-style: none;
+    padding: 5px 0;
+
+}
+
+#contact-details .details li i {
+    font-size: 14px;
+    padding-right: 22px;
+
+}
+
+#contact-details .details li p {
+    margin: 0;
+    font-size: 14px;
+
 }
