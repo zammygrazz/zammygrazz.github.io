@@ -810,7 +810,7 @@ body.showCart .container {
 
     #feature {
 
-        justify-content: center;
+        justify-content: space-between;
     }
 
     #feature .fe-box {
