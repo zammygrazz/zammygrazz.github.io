@@ -892,7 +892,7 @@ body.showCart .container {
 
 /* mobile view */
 
-@media (max-width: 447px) {
+@media (max-width: 414px) {
 
     .section-p1 {
         padding: 20px;
