@@ -132,6 +132,7 @@ header {
     align-items: center;
 }
 
+
 #cancel {
     display: none;
 }
@@ -668,6 +669,38 @@ footer .copywrite {
     z-index: 1000;
 }
 
+#sideBar {
+    position: fixed;
+    inset: 0 -400px 0 auto;
+    width: 350px;
+    background-color: #cdd4f8;
+    z-index: 1000;
+    transition: .5s;
+
+}
+
+#sideBar .mobileNav ul {
+
+    list-style: none;
+
+}
+
+#sideBar .mobileNav ul li {
+
+    padding: 15px;
+    cursor: pointer;
+
+}
+
+#sideBar .mobileNav ul li:hover {
+
+    background-color: orangered;
+
+}
+
+body.showSidebar #sideBar {
+    inset: 0 0 0 auto;
+}
 
 body.showCart .cartTab {
     inset: 0 0 0 auto;
@@ -1026,6 +1059,9 @@ body.showCart .container {
         padding-left: 0;
     }
 
+    #about-head div ul {
+        list-style-type: square;
+    }
 }
 
 /* shop page */

@@ -1,6 +1,8 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
     let container = document.getElementById('product1');
     let closeCart = document.querySelector('.close');
     let products = document.getElementsByClassName('pro');
@@ -8,10 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let iconCart = document.querySelector('.icon-cart');
     let span = document.querySelector('.span');
     let body = document.querySelector('body');
+    let sideBar = document.getElementById('mobile');
     let listProduct = [];
     let carts = [];
 
 
+    sideBar.addEventListener('click', () => {
+        body.classList.toggle('showSidebar');
+    });
 
     iconCart.addEventListener('click', () => {
         body.classList.toggle('showCart');
@@ -247,6 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Loaded JSON data:", data);
             listProduct = data;
             addDataHTML();
+
+            let storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                carts = JSON.parse(storedCart); // Restore cart items
+            }
+
+            addCartToHTML();
+
         } catch (error) {
             console.log(error);
         }
