@@ -1095,6 +1095,7 @@ body.showCart .container {
     padding: 15px 20px;
     border-radius: 4px;
     font-weight: 600;
+    margin-right: 10px;
 
 }
 
@@ -1102,6 +1103,15 @@ body.showCart .container {
     font-size: 16px;
     font-weight: 600;
 }
+
+#pagination a.active {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px 20px;
+    border-radius: 4px;
+}
+
 
 /* single-product   */
 

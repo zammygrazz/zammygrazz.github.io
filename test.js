@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let listProduct = [];
     let carts = [];
 
+    const productsPerPage = 8;
+    let currentPage = 1;
+
+
 
     sideBar.addEventListener('click', () => {
         body.classList.toggle('showSidebar');
@@ -27,7 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.toggle('showCart');
     });
 
-    const addDataHTML = () => {
+    const addDataHTML = (page) => {
+        const start = (page - 1) * productsPerPage;
+        const end = start + productsPerPage;
+        const paginatedProducts = listProduct.slice(start, end);
+
         container.innerHTML = `
                 <h2>Featured Products</h2>
                 <p>Summer Collection New Modern Design</p>
@@ -36,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let proContainer = container.querySelector('.pro-container');
 
-        if (listProduct.length > 0) {
-            listProduct.forEach(element => {
+
+        if (paginatedProducts.length > 0) {
+            paginatedProducts.forEach(element => {
                 let productHTML = `
                         <div class="pro" data-id="${element.id}">
                             <img src="${element.img}" alt="">
@@ -62,6 +71,49 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+    }
+
+    //pagination 
+
+    function setupPagination() {
+        const totalPages = Math.ceil(listProduct.length / productsPerPage);
+        const pagination = document.getElementById("pagination");
+        pagination.innerHTML = ""; // clear old links
+
+        for (let i = 1; i <= totalPages; i++) {
+            const link = document.createElement("a");
+            link.href = "#";
+            link.textContent = i;
+
+            if (i === currentPage) {
+                link.classList.add("active"); // for styling the current page
+            }
+
+            link.addEventListener("click", (e) => {
+                e.preventDefault(); // prevent page jump
+                currentPage = i;
+                addDataHTML(currentPage);
+                setupPagination(); // re-render with new active link
+            });
+
+            pagination.appendChild(link);
+        }
+
+        // Optional: Add a next arrow
+        if (currentPage < totalPages) {
+            const nextLink = document.createElement("a");
+            nextLink.href = "#";
+            nextLink.innerHTML = `<i class="fal fa-long-arrow-alt-right"></i>`;
+
+            nextLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                currentPage++;
+                addDataHTML(currentPage);
+                setupPagination();
+            });
+
+            pagination.appendChild(nextLink);
+        }
     }
 
 
@@ -252,7 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             console.log("Loaded JSON data:", data);
             listProduct = data;
-            addDataHTML();
+            addDataHTML(currentPage);
+            setupPagination();
 
             let storedCart = localStorage.getItem('cart');
             if (storedCart) {

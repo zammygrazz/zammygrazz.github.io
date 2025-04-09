@@ -102,5 +102,109 @@
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
         "price": "ksh.1500"
+    },
+    {
+        "id": "9",
+        "img": "img/products/f9.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "10",
+        "img": "img/products/f10.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "11",
+        "img": "img/products/f11.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "12",
+        "img": "img/products/f12.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "13",
+        "img": "img/products/f13.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "14",
+        "img": "img/products/f14.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "15",
+        "img": "img/products/f15.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
+    },
+    {
+        "id": "16",
+        "img": "img/products/f16.jpg",
+        "subCategory": [
+            "img/products/f1.jpg",
+            "img/products/f2.jpg",
+            "img/products/f3.jpg",
+            "img/products/f4.jpg"
+        ],
+        "brand": "addidas",
+        "description": "Cartoon Astronaut T-Shirts",
+        "price": "ksh.1500"
     }
 ]
