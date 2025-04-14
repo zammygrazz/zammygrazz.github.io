@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let span = document.querySelector('.span');
     let body = document.querySelector('body');
     let sideBar = document.getElementById('mobile');
+    let nav = document.getElementById('navbar');
+    let cancel = document.getElementById('cancel');
     let listProduct = [];
     let carts = [];
 
@@ -20,7 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     sideBar.addEventListener('click', () => {
-        body.classList.toggle('showSidebar');
+        nav.classList.toggle('active');
+    });
+
+    cancel.addEventListener('click', (e) => {
+        e.preventDefault();
+        nav.classList.toggle('active');
     });
 
     iconCart.addEventListener('click', () => {

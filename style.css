@@ -669,7 +669,7 @@ footer .copywrite {
     z-index: 1000;
 }
 
-#sideBar {
+/* #sideBar {
     position: fixed;
     inset: 0 -400px 0 auto;
     width: 350px;
@@ -677,30 +677,30 @@ footer .copywrite {
     z-index: 1000;
     transition: .5s;
 
-}
+} */
 
-#sideBar .mobileNav ul {
+/* #sideBar .mobileNav ul {
 
     list-style: none;
 
-}
+} */
 
-#sideBar .mobileNav ul li {
+/* #sideBar .mobileNav ul li {
 
     padding: 15px;
     cursor: pointer;
 
-}
+} */
 
-#sideBar .mobileNav ul li:hover {
+/* #sideBar .mobileNav ul li:hover {
 
     background-color: orangered;
 
-}
+} */
 
-body.showSidebar #sideBar {
+/* body.showSidebar #sideBar {
     inset: 0 0 0 auto;
-}
+} */
 
 body.showCart .cartTab {
     inset: 0 0 0 auto;
