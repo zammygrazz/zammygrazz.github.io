@@ -30,10 +30,6 @@
                 </li>
 
                 <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-
-                <li>
                     <a href="about.html">About</a>
                 </li>
 
@@ -115,11 +111,11 @@
     </section>
 
 
-    <section id="pagination" class="section-p1">
+    <!-- <section id="pagination" class="section-p1">
         <a href="#">1</a>
         <a href="#">2</a>
         <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
-    </section>
+    </section> -->
 
     <section id="product1" class="section-p1">
         <h2>Featured Products</h2>
@@ -269,14 +265,16 @@
         </div>
     </footer>
 
-    <!-- 
-    <script src="app.js"></script> -->
+
+    <script src="test.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let mainImg = document.getElementById('mainImg');
             let smallImg = document.getElementsByClassName('small-img');
             let selectedImage = localStorage.getItem("selectedImage");
+            let sproduct = JSON.parse(localStorage.getItem('sproduct')) || [];
             let imgArray = JSON.parse(localStorage.getItem('storedArray')) || [];
+            let quickView = document.querySelector('.single-pro-details');
             if (selectedImage && imgArray) {
                 mainImg.src = selectedImage;
                 console.log("This is the image array", imgArray);
@@ -297,6 +295,21 @@
                     }
                 }
             }
+
+            const showContent = (sproduct) => {
+
+                quickView.querySelector('h4').textContent = sproduct.description;
+                quickView.querySelector('h2').textContent = sproduct.price;
+
+
+
+            }
+
+            showContent(sproduct);
+
+
+
+
 
 
         });

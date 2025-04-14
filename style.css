@@ -130,6 +130,7 @@ header {
 #mobile {
     display: none;
     align-items: center;
+    cursor: pointer;
 }
 
 

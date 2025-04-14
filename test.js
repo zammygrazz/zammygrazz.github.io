@@ -192,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let selectedProduct = listProduct.find(product => product.img === relativeImgSrc);
             if (selectedProduct) {
                 let imgArray = selectedProduct.subCategory || [];
+                localStorage.setItem('sproduct', JSON.stringify(selectedProduct));
                 localStorage.setItem('storedArray', JSON.stringify(imgArray));
                 console.log("Redirecting to sproduct.html...");
                 window.location.href = "sproduct.html";
