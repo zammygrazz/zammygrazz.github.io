@@ -124,44 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // container.addEventListener('click', (event) => {
-
-    //     let positionClick = event.target;
-    //     console.log("the position of the click is ", positionClick);
-    //     // Check if the clicked element is an addCart button
-    //     if (positionClick.tagName.toLowerCase() === 'i') {
-    //         event.preventDefault();
-    //         let productId = positionClick.dataset.id; // Access data-id directly from the button
-    //         console.log("The productID is ", productId);
-    //         addToCart(productId);
-    //     } else if (positionClick.tagName.toLowerCase() === 'img') {
-
-    //         let imgSrc = positionClick.src;  // Get the image source
-    //         console.log("set image is:", imgSrc);  // Log or store the image source
-    //         let relativeImgSrc = imgSrc.replace('http://127.0.0.1:5500/', '');
-    //         console.log("relative image source is:", relativeImgSrc);
-    //         // Store in a variable or do something with the image source
-    //         // For example, store it in localStorage
-    //         localStorage.setItem("selectedImage", relativeImgSrc);
-
-    //         // Check if there is a selected image after data is loaded
-    //         let selectedImage = localStorage.getItem("selectedImage");
-    //         console.log("get image is ", selectedImage)
-    //         if (selectedImage) {
-    //             let selectedProduct = listProduct.find(product => product.img === selectedImage);
-    //             if (selectedProduct) {
-    //                 let imgArray = selectedProduct.subCategory || [];
-
-    //                 console.log("Image array is:", JSON.stringify(imgArray));
-    //                 localStorage.setItem('storedArray', JSON.stringify(imgArray));
-    //                 window.location.href = "sproduct.html";
-    //             } else {
-    //                 console.log('error trying to store array imgArray');
-    //             }
-    //         }
-
-    //     }
-    // });
 
     container.addEventListener('click', (event) => {
         let positionClick = event.target;
@@ -209,12 +171,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carts.length <= 0) {
             carts = [{
                 cartId: productId,
-                quantity: 1
+                quantity: 1,
+                size: "M"
             }];
         } else if (positionThisProductInCart < 0) {
             carts.push({
                 cartId: productId,
-                quantity: 1
+                quantity: 1,
+                size: "M"
             });
         } else {
             carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
@@ -233,42 +197,105 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(carts));
     }
 
+    // const addCartToHTML = () => {
+    //     listCartHTML.innerHTML = '';
+    //     let totalQuantity = 0;
+
+    //     if (carts.length > 0) {
+    //         carts.forEach((x) => {
+    //             totalQuantity = totalQuantity + x.quantity;
+    //             let elementIndex = listProduct.findIndex((value) => value.id == x.cartId);
+    //             if (elementIndex >= 0) {
+    //                 let info = listProduct[elementIndex];
+    //                 let newCart = document.createElement('div');
+    //                 newCart.classList.add('item');
+    //                 newCart.dataset.id = x.cartId;
+    //                 let totalPrice = info.price * x.quantity;
+
+
+    //                 newCart.innerHTML = `
+    //                 <img src="${info.img}" alt="">
+    //                 <div class="size">
+    //                     <select class="size-select" data-id="${x.cartId}">
+    //                         <option value="S">S</option>
+    //                         <option value="M">M</option>
+    //                         <option value="L">L</option>
+    //                         <option value="XL">XL</option>
+    //                         <option value="2XL">2XL</option>
+    //                     </select>
+    //                 </div>
+    //                 <div class="totalPrice">ksh. ${info.price}</div>
+    //                 <div class="quantity">
+    //                     <span class="minus">-</span>
+    //                     <span>${x.quantity}</span>
+    //                     <span class="plus">+</span>
+    //                 </div>
+    //             `;
+
+
+    //                 listCartHTML.appendChild(newCart);
+    //             }
+
+    //         });
+    //     }
+
+    //     span.innerHTML = totalQuantity;
+    // }
+
     const addCartToHTML = () => {
         listCartHTML.innerHTML = '';
         let totalQuantity = 0;
 
         if (carts.length > 0) {
             carts.forEach((x) => {
-                totalQuantity = totalQuantity + x.quantity;
+                totalQuantity += x.quantity;
                 let elementIndex = listProduct.findIndex((value) => value.id == x.cartId);
                 if (elementIndex >= 0) {
                     let info = listProduct[elementIndex];
                     let newCart = document.createElement('div');
                     newCart.classList.add('item');
                     newCart.dataset.id = x.cartId;
-                    let totalPrice = info.price * x.quantity;
-
+                    let totalPrice = Number(info.price) * x.quantity;
 
                     newCart.innerHTML = `
                         <img src="${info.img}" alt="">
-                        <div class="name">${info.brand}</div>
-                        <div class="totalPrice">ksh. ${info.price}</div>
+                        <div class="size">
+                            <select class="size-select" data-id="${x.cartId}">
+                                <option value="S" ${x.size === "S" ? "selected" : ""}>S</option>
+                                <option value="M" ${x.size === "M" ? "selected" : ""}>M</option>
+                                <option value="L" ${x.size === "L" ? "selected" : ""}>L</option>
+                                <option value="XL" ${x.size === "XL" ? "selected" : ""}>XL</option>
+                                <option value="2XL" ${x.size === "2XL" ? "selected" : ""}>2XL</option>
+                            </select>
+                        </div>
+                        <div class="totalPrice">ksh. ${totalPrice}</div>
                         <div class="quantity">
-                            <span class="minus">
-                                -</span>
+                            <span class="minus">-</span>
                             <span>${x.quantity}</span>
                             <span class="plus">+</span>
                         </div>
-                        `;
+                    `;
 
                     listCartHTML.appendChild(newCart);
                 }
-
             });
         }
 
         span.innerHTML = totalQuantity;
-    }
+    };
+
+
+    listCartHTML.addEventListener('change', (event) => {
+        if (event.target.classList.contains('size-select')) {
+            const productId = event.target.dataset.id;
+            const selectedSize = event.target.value;
+            const cartItem = carts.find(item => item.cartId === productId);
+            if (cartItem) {
+                cartItem.size = selectedSize;
+                addCartToMemory();
+            }
+        }
+    });
 
 
     listCartHTML.addEventListener('click', (event) => {
@@ -310,17 +337,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             const data = await response.json();
-            console.log("Loaded JSON data:", data);
             listProduct = data;
+
+            localStorage.setItem('allProducts', JSON.stringify(listProduct));
             addDataHTML(currentPage);
             setupPagination();
 
             let storedCart = localStorage.getItem('cart');
             if (storedCart) {
                 carts = JSON.parse(storedCart); // Restore cart items
+                addCartToHTML();
             }
 
-            addCartToHTML();
+
 
         } catch (error) {
             console.log(error);

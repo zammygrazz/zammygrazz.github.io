@@ -10,7 +10,7 @@
         ],
         "brand": "addidas",
         "description": "Pink Unisex Kids Pjs",
-        "price": "ksh.3500"
+        "price": "3500"
     },
     {
         "id": "2",
@@ -23,7 +23,7 @@
         ],
         "brand": "addidas",
         "description": "Black & White Pjs Pants T-Shirts",
-        "price": "ksh.4500"
+        "price": "4500"
     },
     {
         "id": "3",
@@ -36,7 +36,7 @@
         ],
         "brand": "addidas",
         "description": "skirt Pjs",
-        "price": "ksh.3200"
+        "price": "3200"
     },
     {
         "id": "4",
@@ -49,7 +49,7 @@
         ],
         "brand": "addidas",
         "description": "Premium checked suit",
-        "price": "ksh.4800"
+        "price": "4800"
     },
     {
         "id": "5",
@@ -62,7 +62,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.3500"
+        "price": "3500"
     },
     {
         "id": "6",
@@ -75,7 +75,7 @@
         ],
         "brand": "addidas",
         "description": "Night dress Pjs",
-        "price": "ksh.3000"
+        "price": "3000"
     },
     {
         "id": "7",
@@ -88,7 +88,7 @@
         ],
         "brand": "addidas",
         "description": "Mr. Waweru Pjs",
-        "price": "ksh.4500"
+        "price": "4500"
     },
     {
         "id": "8",
@@ -101,7 +101,7 @@
         ],
         "brand": "addidas",
         "description": "Comfy cozy pants & T-shirt",
-        "price": "ksh.3300"
+        "price": "3300"
     },
     {
         "id": "9",
@@ -114,7 +114,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "10",
@@ -127,7 +127,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "11",
@@ -140,7 +140,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "12",
@@ -153,7 +153,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "13",
@@ -166,7 +166,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "14",
@@ -179,7 +179,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "15",
@@ -192,7 +192,7 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     },
     {
         "id": "16",
@@ -205,6 +205,6 @@
         ],
         "brand": "addidas",
         "description": "Cartoon Astronaut T-Shirts",
-        "price": "ksh.1500"
+        "price": "1500"
     }
 ]

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,10 +22,6 @@
 
                 <li class="active-menu">
                     <a href="shop.html">Shop</a>
-                </li>
-
-                <li class="label1">
-                    <a href="shoping-cart.html">Features</a>
                 </li>
 
                 <li>
@@ -118,6 +114,11 @@
         </div>
     </section>
 
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
 
     <section id="banner" class="section-p1">
         <h4>New Year Offer</h4>
@@ -218,6 +219,7 @@
     <div class="cartTab">
         <h1>Shopping Cart</h1>
         <div class="listCart">
+
             <div class="item">
                 <img src="img/products/f2.jpg" alt="">
                 <div class="name">Name</div>
@@ -232,7 +234,7 @@
         </div>
         <div class="btn">
             <button class="close">CLOSE</button>
-            <button class="checkOut">CHECK OUT</button>
+            <button class="checkOut" onclick="window.location.href='cart.html'">CHECK OUT</button>
         </div>
     </div>
 
@@ -263,7 +265,7 @@
         <div class="col">
             <h4>My Account</h4>
             <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
+            <a href="cart.html">View Cart</a>
             <a href="#">My Wishlist</a>
             <a href="#">Help</a>
         </div>
