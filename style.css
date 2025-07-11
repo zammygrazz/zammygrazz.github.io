@@ -1263,10 +1263,10 @@ body.showCart .container {
 #cart-add {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: right;
 }
 
-#coupon {
+/* #coupon {
     width: 50%;
     margin-bottom: 30px;
 }
@@ -1282,9 +1282,9 @@ body.showCart .container {
     width: 60%;
     margin-right: 10px;
     border: 1px solid #e2e9e1;
-}
+} */
 
-#coupon button,
+/* #coupon button, */
 #subtotal button {
     background-color: #088178;
     color: #fff;

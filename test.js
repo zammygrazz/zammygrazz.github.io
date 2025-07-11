@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let sideBar = document.getElementById('mobile');
     let nav = document.getElementById('navbar');
     let cancel = document.getElementById('cancel');
+    const subtotalElement = document.getElementById('cartSubtotal');
+    const totalElement = document.getElementById('cartTotal');
     let listProduct = [];
     let carts = [];
 
@@ -131,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If the clicked element is the cart button, stop redirection
         if (positionClick.classList.contains('cart')) {
+
+            alert('item added to cart');
             event.preventDefault();
             let productId = positionClick.dataset.id;
             console.log("Adding to cart, product ID:", productId);
@@ -245,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addCartToHTML = () => {
         listCartHTML.innerHTML = '';
         let totalQuantity = 0;
+        let grandTotal = 0;
 
         if (carts.length > 0) {
             carts.forEach((x) => {
@@ -256,6 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     newCart.classList.add('item');
                     newCart.dataset.id = x.cartId;
                     let totalPrice = Number(info.price) * x.quantity;
+                    grandTotal += totalPrice;
+
+
 
                     newCart.innerHTML = `
                         <img src="${info.img}" alt="">
@@ -282,6 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         span.innerHTML = totalQuantity;
+        subtotalElement.textContent = `Ksh. ${grandTotal}`;
+        totalElement.textContent = `Ksh. ${grandTotal}`;
     };
 
 
