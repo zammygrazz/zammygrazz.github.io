@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listCartHTML.innerHTML = '';
         let totalQuantity = 0;
         let grandTotal = 0;
+        
 
         if (carts.length > 0) {
             carts.forEach((x) => {
@@ -262,9 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     newCart.dataset.id = x.cartId;
                     let totalPrice = Number(info.price) * x.quantity;
                     grandTotal += totalPrice;
-
-
-
+                   
                     newCart.innerHTML = `
                         <img src="${info.img}" alt="">
                         <div class="size">

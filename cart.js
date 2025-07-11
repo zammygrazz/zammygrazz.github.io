@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     let cartTable = document.getElementById('cartTable');
+    let orderBtn = document.getElementById('order');
 
     // Parse stored items
     let carts = JSON.parse(localStorage.getItem('cart')) || [];
@@ -44,4 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tableHTML += `</tbody></table>`;
     cartTable.innerHTML = tableHTML;
+
+    orderBtn.addEventListener('click', () => {
+
+    
+        let message = "🛒 *Order Details*:%0A";
+        let grandTotal = 0;
+
+        carts.forEach(item => {
+            let product = allProducts.find(p => p.id == item.cartId);
+            if (product) {
+                let subtotal = Number(product.price) * item.quantity;
+                grandTotal += subtotal;
+                message += `• ${product.description} (${item.size}) x${item.quantity} - Ksh. ${subtotal}%0A`;
+            }
+        });
+
+        message += `%0A*Total: Ksh. ${grandTotal}*%0A`;
+        message += "Name: _______%0AAddress: _______%0APlease fill in your details.";
+
+        // ✅ 3. Encode message and open WhatsApp
+        let phoneNumber = "254728178044"; // change to your phone number with country code
+        let whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+        window.open(whatsappURL, '_blank');
+    });
+
+
+
+
 });
