@@ -789,6 +789,15 @@ body.showCart .container {
 }
 
 /* Cart page */
+#cartTable {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#cartTable td {
+    word-break: break-word;
+    /* allow long words to wrap */
+}
 
 #cartTable table {
     width: 100%;
@@ -1010,6 +1019,9 @@ body.showCart .container {
         font-weight: 700;
     }
 
+    #cartTable table {
+        width: 100%;
+    }
 
 }
 
@@ -1324,6 +1336,7 @@ body.showCart .container {
     font-size: 13px;
 
 }
+
 
 
 
