@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td><img src="${match.img}" alt=""></td>
                 <td>${match.description}</td>
                 <td>Ksh. ${match.price}</td>
-                <td><input type="number" value="${cartItem.quantity}" min="1" class="quantity-input" data-id="${cartItem.cartId}"></td>
+                <td><input type="text" value="${cartItem.quantity}" min="1" class="quantity-input" data-id="${cartItem.cartId}"></td>
                 <td>Ksh. ${subtotal}</td>
             </tr>
         `;
@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     orderBtn.addEventListener('click', () => {
 
-    
-        let message = "🛒 *Order Details*:%0A";
+
+        let message = "🛒 *My Order Details*:%0A";
         let grandTotal = 0;
 
         carts.forEach(item => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (product) {
                 let subtotal = Number(product.price) * item.quantity;
                 grandTotal += subtotal;
-                message += `• ${product.description} (${item.size}) x${item.quantity} - Ksh. ${subtotal}%0A`;
+                message += `* ${product.description} (${item.size}) x${item.quantity} - Ksh. ${subtotal}%0A`;
             }
         });
 
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.open(whatsappURL, '_blank');
     });
+
 
 
 
