@@ -1030,6 +1030,21 @@ body.showCart .container {
 
 @media (max-width: 480px) {
 
+    #hero {
+
+        background-position: right 20% top 0;
+    }
+
+    /* 
+    #hero h4 {
+        padding-bottom: 15px;
+    }
+    
+    #hero h1 {
+        color: #088178;
+    }
+     */
+
     .section-p1 {
         padding: 20px;
     }
@@ -1046,7 +1061,7 @@ body.showCart .container {
     }
 
     #hero {
-        background-position: 55%;
+        background-position: 90%;
         padding: 0 80px;
 
     }
@@ -1166,6 +1181,18 @@ body.showCart .container {
     #about-head div ul {
         list-style-type: square;
     }
+
+    #prodetails {
+        flex-direction: column;
+    }
+
+    #prodetails .single-pro-image {
+
+        width: 90% !important;
+
+    }
+
+
 }
 
 /* shop page */
@@ -1222,16 +1249,26 @@ body.showCart .container {
 #prodetails {
     display: flex;
     margin-top: 20px;
+    margin-left: 15px;
 }
 
 #prodetails .single-pro-image {
     width: 40%;
-    margin-right: 50px;
+    border-radius: 15px;
+}
+
+.single-pro-image #mainImg {
+
+    border-radius: 15px;
+    width: 95%;
 }
 
 .small-img-group {
+
     display: flex;
     justify-content: space-between;
+    width: 95%;
+
 }
 
 .small-img-col {
@@ -1239,9 +1276,14 @@ body.showCart .container {
     cursor: pointer;
 }
 
+.small-img-col img {
+    border-radius: 15px;
+}
+
 #prodetails .single-pro-details {
     width: 50%;
     padding-top: 30px;
+    padding-left: 10px;
 }
 
 #prodetails .single-pro-details h4 {
@@ -1264,6 +1306,7 @@ body.showCart .container {
     padding-left: 10px;
     font-size: 16px;
     margin-right: 10px;
+    padding-top: 5px;
 }
 
 #prodetails .single-pro-details button {
