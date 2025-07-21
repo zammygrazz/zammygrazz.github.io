@@ -1242,6 +1242,23 @@ body.showCart .container {
 
     }
 
+    #cart-add {
+        flex-direction: column;
+    }
+
+    #checkout-form {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    #subtotal {
+        width: 90% !important;
+        margin: auto;
+    }
+
+    #subtotal button {
+        width: 100%;
+    }
 
 }
 
@@ -1414,6 +1431,7 @@ body.showCart .container {
     margin-bottom: 30px;
     border: 1px solid #e2e9e1;
     padding: 30px;
+    border-radius: 10px;
 }
 
 #subtotal table {
