@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let cartTable = document.getElementById('cartTable');
     let orderBtn = document.getElementById('order');
 
+
+
     // Parse stored items
     let carts = JSON.parse(localStorage.getItem('cart')) || [];
     let allProducts = JSON.parse(localStorage.getItem('allProducts')) || [];
@@ -48,6 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     orderBtn.addEventListener('click', () => {
 
+        // Get values
+        const name = document.getElementById('fullname').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const notes = document.getElementById('notes').value.trim();
+
+        // Clear previous error messages
+        document.querySelectorAll(".error-msg").forEach(span => span.textContent = '');
+
+        let hasError = false;
+
+        // Field-specific error handling
+        if (!name) {
+            document.getElementById('error-fullname').textContent = "Full name is required.";
+            hasError = true;
+        }
+        if (!phone) {
+            document.getElementById('error-phone').textContent = "Phone number is required.";
+            hasError = true;
+        }
+        if (!address) {
+            document.getElementById('error-address').textContent = "Address is required.";
+            hasError = true;
+        }
+
+        if (hasError) return; // Stop if there are errors
+
 
         let message = "🛒 *My Order Details*:%0A";
         let grandTotal = 0;
@@ -62,7 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         message += `%0A*Total: Ksh. ${grandTotal}*%0A`;
-        message += "Name: _______%0AAddress: _______%0APlease fill in your details.";
+        message += `%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}`;
+        if (email) message += `%0A📧 *Email:* ${email}`;
+        message += `%0A🏠 *Address:* ${address}`;
+        if (notes) message += `%0A📝 *Notes:* ${notes}`;
 
         // ✅ 3. Encode message and open WhatsApp
         let phoneNumber = "254728178044"; // change to your phone number with country code

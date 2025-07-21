@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // If the clicked element is the cart button, stop redirection
         if (positionClick.classList.contains('cart')) {
 
-            alert('item added to cart');
             event.preventDefault();
+            body.classList.toggle('showCart');
             let productId = positionClick.dataset.id;
             console.log("Adding to cart, product ID:", productId);
             addToCart(productId);
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listCartHTML.innerHTML = '';
         let totalQuantity = 0;
         let grandTotal = 0;
-        
+
 
         if (carts.length > 0) {
             carts.forEach((x) => {
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     newCart.dataset.id = x.cartId;
                     let totalPrice = Number(info.price) * x.quantity;
                     grandTotal += totalPrice;
-                   
+
                     newCart.innerHTML = `
                         <img src="${info.img}" alt="">
                         <div class="size">
