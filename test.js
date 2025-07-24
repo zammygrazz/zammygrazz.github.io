@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addToCart = (productId) => {
         let positionThisProductInCart = carts.findIndex((value) => value.cartId === productId);
+
         if (carts.length <= 0) {
             carts = [{
                 cartId: productId,

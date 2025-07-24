@@ -895,6 +895,16 @@ body.showCart .container {
     border-radius: 4px;
 }
 
+.input-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid red;
+}
+
+.input-error::placeholder {
+    color: red;
+}
+
+
 #checkout-form button {
     background-color: #088178;
     color: #fff;

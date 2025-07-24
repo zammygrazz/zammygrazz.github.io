@@ -48,10 +48,24 @@ document.addEventListener('DOMContentLoaded', () => {
     tableHTML += `</tbody></table>`;
     cartTable.innerHTML = tableHTML;
 
+
+    //Live validation clearing when empty
+
+    ['firstname', 'lastname', 'phone', "email", 'address', 'notes'].forEach(id => {
+        const input = document.getElementById(id)
+        input.addEventListener('input', () => {
+            input.classList.remove('input-error');
+            const errorSpan = document.getElementById(`error-${id}`);
+            if (errorSpan) errorSpan.textContent = '';
+        });
+    });
+
+
     orderBtn.addEventListener('click', () => {
 
         // Get values
-        const name = document.getElementById('fullname').value.trim();
+        const firstName = document.getElementById('firstname').value.trim();
+        const lastName = document.getElementById('lastname').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const email = document.getElementById('email').value.trim();
         const address = document.getElementById('address').value.trim();
@@ -63,16 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let hasError = false;
 
         // Field-specific error handling
-        if (!name) {
-            document.getElementById('error-fullname').textContent = "Full name is required.";
+        if (!firstName) {
+            document.getElementById('error-firstname').textContent = "First name is required.";
+            document.getElementById('firstname').classList.add('input-error');
             hasError = true;
         }
+        if (!lastName) {
+            document.getElementById('error-lastname').textContent = "Last name is required.";
+            document.getElementById('lastname').classList.add('input-error');
+            hasError = true;
+        }
+
         if (!phone) {
             document.getElementById('error-phone').textContent = "Phone number is required.";
+            document.getElementById('phone').classList.add('input-error');
             hasError = true;
         }
         if (!address) {
             document.getElementById('error-address').textContent = "Address is required.";
+            document.getElementById('address').classList.add('input-error');
             hasError = true;
         }
 
@@ -92,13 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         message += `%0A*Total: Ksh. ${grandTotal}*%0A`;
-        message += `%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}`;
+        message += `%0A👤 *Name:* ${firstName} ${lastName}%0A📞 *Phone:* ${phone}`;
         if (email) message += `%0A📧 *Email:* ${email}`;
         message += `%0A🏠 *Address:* ${address}`;
         if (notes) message += `%0A📝 *Notes:* ${notes}`;
 
         // ✅ 3. Encode message and open WhatsApp
-        let phoneNumber = "254728178044"; // change to your phone number with country code
+        let phoneNumber = "+254728178044"; // change to your phone number with country code
         let whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
         window.open(whatsappURL, '_blank');
