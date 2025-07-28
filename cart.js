@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 `;
 
     carts.forEach(cartItem => {
-        let match = allProducts.find(product => product.id == cartItem.cartId);
+        let match = allProducts.find(product => product.id == cartItem.productId);
         if (match) {
             const subtotal = parseInt(match.price.replace(/[^0-9]/g, '')) * cartItem.quantity;
 
@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let grandTotal = 0;
 
         carts.forEach(item => {
-            let product = allProducts.find(p => p.id == item.cartId);
+            const baseProductId = cartItem.cartId.split('_')[0];
+            const product = allProducts.find(p => p.id == baseProductId);
             if (product) {
                 let subtotal = Number(product.price) * item.quantity;
                 grandTotal += subtotal;

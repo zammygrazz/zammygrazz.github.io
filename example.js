@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let listProduct = [];
     let carts = [];
     let sproduct = JSON.parse(localStorage.getItem('sproduct')) || [];
-    let imgArray = JSON.parse(localStorage.getItem('storedArray')) || [];
-    let mainImg = document.getElementById('mainImg');
-    let smallImg = document.getElementsByClassName('small-img');
+
 
     const productsPerPage = 8;
     let currentPage = 1;
@@ -142,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.toggle('showCart');
             let productId = positionClick.dataset.id;
             console.log("Adding to cart, product ID:", productId);
-            addToCart(productId);
+            addToCart(productId, size = "M");
             return; // Exit function to prevent redirection
         }
 
@@ -165,8 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('sproduct', JSON.stringify(selectedProduct));
                 localStorage.setItem('storedArray', JSON.stringify(imgArray));
 
-                renderQuickview();
-
                 window.location.href = "sproduct.html";
             } else {
                 console.log("Error: Product not found.");
@@ -183,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+
             if (selectedSize === "Select Size") {
                 alert("Please select a size.");
                 return;
@@ -193,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const uniqueCartId = `${sproduct.id}`;
+            const uniqueCartId = `${sproduct.id}_${selectedSize}`;
             carts = JSON.parse(localStorage.getItem("cart")) || [];
 
             const existingIndex = carts.findIndex(item => item.cartId === uniqueCartId);
@@ -202,7 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 carts[existingIndex].size = selectedSize;
             } else {
                 carts.push({
-                    cartId: sproduct.id,
+                    cartId: uniqueCartId, // ✅ Unique by ID + size
+                    productId: sproduct.id, // store separately for lookup
                     quantity: quantity,
                     size: selectedSize
                 });
@@ -222,55 +220,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    const renderQuickview = () => {
-        if (sproduct && imgArray) {
-            mainImg.src = sproduct.img;
-            console.log("This is the image array", imgArray);
-
-        } else {
-            console.error("mainImg element not found in sproduct.html");
-        }
 
 
+    const addToCart = (productId, size = "M") => {
 
-        if (imgArray.length > 0) {
-            for (let i = 0; i < imgArray.length; i++) {
-                if (imgArray[i]) {
-                    smallImg[i].src = imgArray[i];
-                    smallImg[i].onclick = function () {
-                        mainImg.src = this.src;
-                    };
-                }
-            }
-        }
+        const cartId = `${productId}_${size}`;
 
-        quickView.querySelector('h4').textContent = sproduct.description;
-        quickView.querySelector('h2').textContent = sproduct.price;
+        let positionThisProductInCart = carts.findIndex((value) => value.cartId === cartId);
 
-
-    }
-
-    const addToCart = (productId) => {
-        let positionThisProductInCart = carts.findIndex((value) => value.cartId === productId);
-
-        if (carts.length <= 0) {
-            carts = [{
-                cartId: productId,
-                quantity: 1,
-                size: "M"
-            }];
-        } else if (positionThisProductInCart < 0) {
+        if (positionThisProductInCart < 0) {
             carts.push({
-                cartId: productId,
-                quantity: 1,
-                size: "M"
+                cartId: cartId,
+                productId: productId,  // Store the base product ID separately
+                size: size,
+                quantity: 1
             });
         } else {
             carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
         }
-
-        console.log(carts);
-
         addCartToMemory();
         addCartToHTML();
 
@@ -282,50 +249,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(carts));
     }
 
-    // const addCartToHTML = () => {
-    //     listCartHTML.innerHTML = '';
-    //     let totalQuantity = 0;
-
-    //     if (carts.length > 0) {
-    //         carts.forEach((x) => {
-    //             totalQuantity = totalQuantity + x.quantity;
-    //             let elementIndex = listProduct.findIndex((value) => value.id == x.cartId);
-    //             if (elementIndex >= 0) {
-    //                 let info = listProduct[elementIndex];
-    //                 let newCart = document.createElement('div');
-    //                 newCart.classList.add('item');
-    //                 newCart.dataset.id = x.cartId;
-    //                 let totalPrice = info.price * x.quantity;
-
-
-    //                 newCart.innerHTML = `
-    //                 <img src="${info.img}" alt="">
-    //                 <div class="size">
-    //                     <select class="size-select" data-id="${x.cartId}">
-    //                         <option value="S">S</option>
-    //                         <option value="M">M</option>
-    //                         <option value="L">L</option>
-    //                         <option value="XL">XL</option>
-    //                         <option value="2XL">2XL</option>
-    //                     </select>
-    //                 </div>
-    //                 <div class="totalPrice">ksh. ${info.price}</div>
-    //                 <div class="quantity">
-    //                     <span class="minus">-</span>
-    //                     <span>${x.quantity}</span>
-    //                     <span class="plus">+</span>
-    //                 </div>
-    //             `;
-
-
-    //                 listCartHTML.appendChild(newCart);
-    //             }
-
-    //         });
-    //     }
-
-    //     span.innerHTML = totalQuantity;
-    // }
 
     const addCartToHTML = () => {
         listCartHTML.innerHTML = '';
@@ -333,10 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let grandTotal = 0;
 
 
+
         if (carts.length > 0) {
             carts.forEach((x) => {
                 totalQuantity += x.quantity;
-                let elementIndex = listProduct.findIndex((value) => value.id == x.cartId);
+                let elementIndex = listProduct.findIndex((value) => value.id == x.productId);
                 if (elementIndex >= 0) {
                     let info = listProduct[elementIndex];
                     let newCart = document.createElement('div');
