@@ -8,9 +8,16 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Pink Unisex Kids Pjs",
-        "price": "3500"
+        "brand": "adidas",
+        "description": "Women's Checked suit Pjs",
+        "price": "3500",
+        "category": "Kids",
+        "gender": "Unisex",
+        "tags": [
+            "pajamas",
+            "cotton",
+            "sleepwear"
+        ]
     },
     {
         "id": "2",
@@ -21,9 +28,16 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Black & White Pjs Pants T-Shirts",
-        "price": "4500"
+        "brand": "adidas",
+        "description": "Men's Black & White Pajama pants Set",
+        "price": "4500",
+        "category": "Adult",
+        "gender": "Male",
+        "tags": [
+            "pajamas",
+            "cotton",
+            "sleepwear"
+        ]
     },
     {
         "id": "3",
@@ -34,9 +48,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "skirt Pjs",
-        "price": "3200"
+        "brand": "adidas",
+        "description": "Kids Blue Basketball",
+        "price": "3200",
+        "category": "Kids",
+        "gender": "Unisex",
+        "tags": [
+            "nightdress",
+            "sleepwear"
+        ]
     },
     {
         "id": "4",
@@ -47,9 +67,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Premium checked suit",
-        "price": "4800"
+        "brand": "adidas",
+        "description": "Women's Skirt shirt",
+        "price": "4800",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "lounge",
+            "premium"
+        ]
     },
     {
         "id": "5",
@@ -60,9 +86,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "3500"
+        "brand": "adidas",
+        "description": "Kids Pink Pajamas set",
+        "price": "3500",
+        "category": "Kids",
+        "gender": "Unisex",
+        "tags": [
+            "tshirt",
+            "casual"
+        ]
     },
     {
         "id": "6",
@@ -73,9 +105,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Night dress Pjs",
-        "price": "3000"
+        "brand": "adidas",
+        "description": "Women's Black tshirt and Checked pants",
+        "price": "3000",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "nightdress",
+            "sleepwear"
+        ]
     },
     {
         "id": "7",
@@ -86,9 +124,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Mr. Waweru Pjs",
-        "price": "4500"
+        "brand": "adidas",
+        "description": "Women's Black tshirt and Checked pants",
+        "price": "4500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "pajamas",
+            "cotton"
+        ]
     },
     {
         "id": "8",
@@ -99,9 +143,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Comfy cozy pants & T-shirt",
-        "price": "3300"
+        "brand": "adidas",
+        "description": "Unisex Comfort Pants & Tee",
+        "price": "3300",
+        "category": "Kids",
+        "gender": "Unisex",
+        "tags": [
+            "loungewear",
+            "comfort"
+        ]
     },
     {
         "id": "9",
@@ -112,9 +162,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Kids Cartoon T-Shirt",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "tshirt",
+            "casual"
+        ]
     },
     {
         "id": "10",
@@ -125,9 +181,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Sleep Shirt",
+        "price": "1500",
+        "category": "Kids",
+        "gender": "Male",
+        "tags": [
+            "sleepwear",
+            "tshirt"
+        ]
     },
     {
         "id": "11",
@@ -138,9 +200,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Flowers Night Dress",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "shorts",
+            "loungewear"
+        ]
     },
     {
         "id": "12",
@@ -151,9 +219,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Brown night dress Set",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "pajamas",
+            "sleepwear"
+        ]
     },
     {
         "id": "13",
@@ -164,9 +238,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Silk Pajamas",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "pajamas",
+            "luxury"
+        ]
     },
     {
         "id": "14",
@@ -177,9 +257,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Tyga strip Brown Cotton",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "pajamas",
+            "cotton"
+        ]
     },
     {
         "id": "15",
@@ -190,9 +276,15 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Kids Robe",
+        "price": "1500",
+        "category": "Kids",
+        "gender": "Unisex",
+        "tags": [
+            "robe",
+            "sleepwear"
+        ]
     },
     {
         "id": "16",
@@ -203,8 +295,14 @@
             "img/products/f3.jpg",
             "img/products/f4.jpg"
         ],
-        "brand": "addidas",
-        "description": "Cartoon Astronaut T-Shirts",
-        "price": "1500"
+        "brand": "adidas",
+        "description": "Women's Lounge Set",
+        "price": "1500",
+        "category": "Adult",
+        "gender": "Female",
+        "tags": [
+            "loungewear",
+            "set"
+        ]
     }
 ]
