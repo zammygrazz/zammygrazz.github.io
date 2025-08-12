@@ -11,8 +11,8 @@
         "brand": "adidas",
         "description": "Women's Checked suit Pjs",
         "price": "3500",
-        "category": "Kids",
-        "gender": "Unisex",
+        "category": "Adult",
+        "gender": "Female",
         "tags": [
             "pajamas",
             "cotton",
@@ -277,10 +277,10 @@
             "img/products/f4.jpg"
         ],
         "brand": "adidas",
-        "description": "Kids Robe",
+        "description": "Purple night dress",
         "price": "1500",
-        "category": "Kids",
-        "gender": "Unisex",
+        "category": "Adult",
+        "gender": "Female",
         "tags": [
             "robe",
             "sleepwear"
@@ -296,10 +296,10 @@
             "img/products/f4.jpg"
         ],
         "brand": "adidas",
-        "description": "Women's Lounge Set",
+        "description": "Men's black and grey checked pants",
         "price": "1500",
         "category": "Adult",
-        "gender": "Female",
+        "gender": "Male",
         "tags": [
             "loungewear",
             "set"
