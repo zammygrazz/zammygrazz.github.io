@@ -6,14 +6,60 @@ document.addEventListener('DOMContentLoaded', function () {
     const productQtyInput = document.getElementById('productQty');
     const mainImage = document.getElementById('mainImg');
     const smallImages = document.querySelectorAll('.small-img');
+    const listCartHTML = document.querySelector('.listCart');
+    let carts = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Load product data from localStorage
     const sproduct = JSON.parse(localStorage.getItem('sproduct')) || {};
     const storedArray = JSON.parse(localStorage.getItem('storedArray')) || [];
     const selectedImage = localStorage.getItem('selectedImage');
 
+    const subtotalElement = document.getElementById('cartSubtotal');
+    const totalElement = document.getElementById('cartTotal');
+    const sortSelect = document.getElementById('sort-select');
+    const span = document.querySelector('.span');
+
+    // Data
+    let listProduct = [];
+
     // Initialize product detail page
     initProductDetailPage();
+
+     async function initApp() {
+        try {
+            // Show loading state
+            proContainer.innerHTML = '<div class="loading-spinner"></div>';
+
+            // Load products
+            const response = await fetch('test.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+
+            listProduct = await response.json();
+            localStorage.setItem('allProducts', JSON.stringify(listProduct));
+
+            // Check for category filter
+            // const category = localStorage.getItem('selectedCategory');
+            // if (category) {
+            //     filterProductsByCategory(category);
+            //     localStorage.removeItem('selectedCategory');
+            // } else {
+            //     filteredProducts = [...listProduct];
+            //     addDataHTML(currentPage);
+            // }
+
+            //setupPagination();
+            //addCartToHTML();
+
+            // Initialize sort if available
+            if (sortSelect) {
+                sortSelect.addEventListener('change', handleSortChange);
+            }
+
+        } catch (error) {
+            console.error('Error loading products:', error);
+            //showErrorState();
+        }
+    }
 
     // Event Listeners
     if (addToCartBtn) {
@@ -158,12 +204,71 @@ document.addEventListener('DOMContentLoaded', function () {
         // Save to localStorage
         localStorage.setItem("cart", JSON.stringify(carts));
 
+        addCartToHTML2();
+
         // Show success message
         showAddToCartSuccess();
 
         // Update cart count
         updateCartCount();
     }
+
+    function addCartToHTML2() {
+        listCartHTML.innerHTML = '';
+        let totalQuantity = 0;
+        let grandTotal = 0;
+
+        console.log("cart output from add to", carts);
+
+        if (carts.length > 0) {
+
+            console.log('dsiusd')
+
+            carts.forEach((cartItem) => {
+                totalQuantity += cartItem.quantity;
+                const product = listProduct.find(p => p.id == cartItem.productId);
+
+                console.log('sdjgdsoidsf')
+                console.log(product)
+
+                if (product) {
+                    const totalPrice = Number(product.price) * cartItem.quantity;
+                    grandTotal += totalPrice;
+
+                    const cartItemHTML = `
+                        <div class="item" data-id="${cartItem.cartId}">
+                            <img src="${product.img}" alt="${product.description}">
+                            <div class="size">
+                                <select class="size-select" data-id="${cartItem.cartId}">
+                                    <option value="S" ${cartItem.size === "S" ? "selected" : ""}>S</option>
+                                    <option value="M" ${cartItem.size === "M" ? "selected" : ""}>M</option>
+                                    <option value="L" ${cartItem.size === "L" ? "selected" : ""}>L</option>
+                                    <option value="XL" ${cartItem.size === "XL" ? "selected" : ""}>XL</option>
+                                    <option value="XXL" ${cartItem.size === "XXL" ? "selected" : ""}>2XL</option>
+                                </select>
+                            </div>
+                            <div class="totalPrice">Ksh. ${totalPrice.toLocaleString()}</div>
+                            <div class="quantity">
+                                <span class="minus">-</span>
+                                <span>${cartItem.quantity}</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </div>
+                    `;
+                    listCartHTML.innerHTML += cartItemHTML;
+                    console.log('dskjdsoihfdsgojhfdkfdkfk')
+                }
+            });
+        } else {
+            listCartHTML.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+        }
+
+        span.textContent = totalQuantity;
+        if (subtotalElement) subtotalElement.textContent = `Ksh. ${grandTotal.toLocaleString()}`;
+        if (totalElement) totalElement.textContent = `Ksh. ${grandTotal.toLocaleString()}`;
+    }
+
+
 
     function showAddToCartSuccess() {
         const notification = document.createElement('div');
