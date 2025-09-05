@@ -158,6 +158,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Save to localStorage
         localStorage.setItem("cart", JSON.stringify(carts));
 
+        // Notify other scripts in this page to refresh their cart UI
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: carts }));
+
         // Show success message
         showAddToCartSuccess();
 

@@ -115,10 +115,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCart() {
         localStorage.setItem('cart', JSON.stringify(carts));
+        // Notify other scripts to sync immediately
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: carts }));
         renderCartTable();
         updateCartTotals();
         updateCartIcon();
     }
+    
+    // If another script updates the cart (same page), re-render table/totals
+    window.addEventListener('cartUpdated', (e) => {
+        carts = e?.detail || JSON.parse(localStorage.getItem('cart')) || [];
+        renderCartTable();
+        updateCartTotals();
+        updateCartIcon();
+    });
 
     function updateCartTotals() {
         if (!cartSubtotal || !cartTotal) return;

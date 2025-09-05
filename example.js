@@ -221,7 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addCartToMemory() {
         localStorage.setItem('cart', JSON.stringify(carts));
+        // notify other scripts in this page
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: carts }));
     }
+    
+    // Listen for cart changes from other scripts (e.g. final.js, cart1.js)
+    window.addEventListener('cartUpdated', (e) => {
+        carts = e?.detail || JSON.parse(localStorage.getItem('cart')) || [];
+        addCartToHTML();
+    });
 
     function addCartToHTML() {
         listCartHTML.innerHTML = '';
