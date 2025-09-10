@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const address = document.getElementById('address').value.trim();
         const notes = document.getElementById('notes').value.trim();
 
+
         // Clear previous error messages
         document.querySelectorAll(".error-msg").forEach(span => span.textContent = '');
 

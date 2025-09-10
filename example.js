@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // notify other scripts in this page
         window.dispatchEvent(new CustomEvent('cartUpdated', { detail: carts }));
     }
-    
+
     // Listen for cart changes from other scripts (e.g. final.js, cart1.js)
     window.addEventListener('cartUpdated', (e) => {
         carts = e?.detail || JSON.parse(localStorage.getItem('cart')) || [];
@@ -325,7 +325,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const selectedProduct = listProduct.find(product => product.img === relativeImgSrc);
             if (selectedProduct) {
+                // const subImages = selectedProduct.subCategory;
+
+                // localStorage.setItem('storedArray', JSON.stringify(subImages));
+                // console.log('the subImages are ', subImages);
+
                 localStorage.setItem('sproduct', JSON.stringify(selectedProduct));
+
                 window.location.href = "sproduct.html";
             }
         }

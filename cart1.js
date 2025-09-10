@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartTotals();
         updateCartIcon();
     }
-    
+
     // If another script updates the cart (same page), re-render table/totals
     window.addEventListener('cartUpdated', (e) => {
         carts = e?.detail || JSON.parse(localStorage.getItem('cart')) || [];
@@ -154,6 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function processOrder() {
+        // Refresh carts in case another script modified them just before ordering
+        carts = JSON.parse(localStorage.getItem('cart')) || carts || [];
+
         // Validate form
         const requiredFields = {
             firstname: 'First name is required',
@@ -179,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Prepare WhatsApp message
+        // Prepare WhatsApp message (use encoded newlines)
         const formData = {
             firstname: document.getElementById('firstname').value.trim(),
             lastname: document.getElementById('lastname').value.trim(),
@@ -189,17 +192,29 @@ document.addEventListener('DOMContentLoaded', () => {
             notes: document.getElementById('notes').value.trim()
         };
 
-        let message = `*NEW ORDER*%0A%0A*Items:*%0A`;
+        let message = '*NEW ORDER*%0A%0A*Items:*%0A';
 
         const grandTotal = carts.reduce((total, item) => {
+            // Try to find the product; if not found, fall back to item fields
             const product = allProducts.find(p => p.id == item.productId || p.id == item.cartId);
+            let desc = '';
+            let unitPrice = 0;
+
             if (product) {
-                const price = parseFloat(product.price.replace(/[^0-9.]/g, ''));
-                const subtotal = price * item.quantity;
-                message += `- ${product.description} (${item.size || 'M'}) x${item.quantity} - Ksh. ${subtotal.toFixed(2)}%0A`;
-                return total + subtotal;
+                desc = product.description || `Product ${product.id}`;
+                unitPrice = parseFloat(String(product.price || '').replace(/[^0-9.]/g, '')) || 0;
+            } else {
+                // fallback: use properties stored in the cart item
+                desc = item.description || item.title || `Product ID: ${item.productId || item.cartId || 'unknown'}`;
+                // try common price fields on cart item
+                unitPrice = parseFloat(String(item.price || item.unitPrice || '').replace(/[^0-9.]/g, '')) || 0;
             }
-            return total;
+
+            const qty = item.quantity || 1;
+            const subtotal = unitPrice * qty;
+            message += `- ${desc} (${item.size || 'M'}) x${qty} - Ksh. ${subtotal.toFixed(2)}%0A`;
+
+            return total + subtotal;
         }, 0);
 
         message += `%0A*Total: Ksh. ${grandTotal.toFixed(2)}*%0A%0A`;
@@ -210,8 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
         message += `Address: ${formData.address}%0A`;
         if (formData.notes) message += `Notes: ${formData.notes}`;
 
-        // Open WhatsApp
+        // Encode the full message once (safe) and open WhatsApp
+        const encoded = encodeURIComponent(message.replace(/%0A/g, '\n'));
         const phoneNumber = "254728178044"; // Your WhatsApp number
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        window.open(`https://wa.me/${phoneNumber}?text=${encoded}`, '_blank');
     }
 });
